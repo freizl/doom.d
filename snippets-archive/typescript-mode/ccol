@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: extends courage Collection
+# --
+class ${1:Name} extends Collection {
+
+  preinitialize(...args) {
+    $2
+    Model.prototype.preinitialize.apply(this, args);
+  }
+}

@@ -1,0 +1,4 @@
+#+TITLE: README
+
+All snippets in this folder will be auto loaded.
+See more details from doomemacs - snippet module.

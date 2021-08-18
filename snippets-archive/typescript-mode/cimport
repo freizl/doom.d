@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name: import core.common
+# --
+import { ${1:Name} } from 'core.common';
