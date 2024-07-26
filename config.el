@@ -135,7 +135,6 @@
 ;; change `org-directory'. It must be set before org loads!
 (require 'org-web-tools)
 (setq org-directory "~/freizl/my-notes/src/"
-      org-work-directory "~/freizl/my-notes/src/01-work/"
       org-personal-directory "~/freizl/my-notes/src/10-personal/"
       org-roam-directory (concat org-directory "20-roam-notes/")
       org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/"
@@ -161,7 +160,6 @@
 ;; mostly copied from "doomemacs/lang/org/config.el"
 (after! org
   (setq +org-capture-journal-file (concat org-directory "journal.org")
-        +org-capture-work-file (concat org-work-directory "inbox.org")
         +org-capture-personal-file (concat org-personal-directory "inbox.org")
         +org-capture-note-file (concat org-directory "note.org")
         ;; https://orgmode.org/manual/Template-elements.html
@@ -174,20 +172,12 @@
            (file+olp+datetree +org-capture-journal-file)
            "%U %?\n%i" :prepend t :jump-to-captured t)
 
-          ("w" "Work TODO" entry
-           (file+headline +org-capture-work-file "Inbox")
-           "* TODO %?\n%i" :prepend t)
-          ("q" "Work Question" entry
-           (file+headline +org-capture-work-file "Question")
-           "* %?\n%i" :prepend t)
-
           ("n" "Notes" entry
            (file +org-capture-note-file)
            "* %U %?\n%i" :prepend t :empty-lines-before 1)
           )
         org-archive-location (concat org-directory "99-archive/%s::")
         org-agenda-files (list org-directory
-                               org-work-directory
                                org-personal-directory
                                (concat org-directory "30-blogs/info/books.org")
                                )
