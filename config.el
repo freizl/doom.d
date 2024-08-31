@@ -1,4 +1,4 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; TODO: consider using org file as config (then tangle to config.el)
 ;;
@@ -134,11 +134,11 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (require 'org-web-tools)
-(setq org-directory "~/freizl/my-notes/src/"
-      org-personal-directory "~/freizl/my-notes/src/10-personal/"
+(setq org-directory "~/freizl/my-notes/"
+      org-notes-directory (concat org-directory "00-orgs/")
       org-roam-directory (concat org-directory "20-roam-notes/")
       org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/"
-      org-mobile-inbox-for-pull (concat org-directory "from-mobile.org")
+      org-mobile-inbox-for-pull (concat org-notes-directory "from-mobile.org")
       ;; org-clock-sound "~/freizl/doom.d/traditional-asian-percussion.wav" ;; doesn't work at MacOS
       ;; org-clock-idle-time 5
       org-clock-auto-clockout-timer 600
@@ -159,9 +159,9 @@
 ;; set my own org-capture-templates
 ;; mostly copied from "doomemacs/lang/org/config.el"
 (after! org
-  (setq +org-capture-journal-file (concat org-directory "journal.org")
-        +org-capture-personal-file (concat org-personal-directory "inbox.org")
-        +org-capture-note-file (concat org-directory "note.org")
+  (setq +org-capture-journal-file (concat org-notes-directory "journal.org")
+        +org-capture-personal-file (concat org-notes-directory "inbox.org")
+        +org-capture-note-file (concat org-notes-directory "note.org")
         ;; https://orgmode.org/manual/Template-elements.html
         org-capture-templates
         '(("p" "Personal TODO" entry
@@ -177,10 +177,8 @@
            "* %U %?\n%i" :prepend t :empty-lines-before 1)
           )
         org-archive-location (concat org-directory "99-archive/%s::")
-        org-agenda-files (list org-directory
-                               org-personal-directory
-                               (concat org-directory "30-blogs/info/books.org")
-                               )
+        org-agenda-files (list org-notes-directory
+                               (concat org-directory "30-blogs/info/books.org"))
         org-todo-keywords (quote ((sequence "TODO(t)" "INPROGRESS(i!)" "CODEREVIEW(v!)" "DONE(d!)")
                                   (sequance "|" "BLOCK(b@/!)" "PAUSE(p@/!)")
                                   (sequence "|" "CANCELED(c@/!)")))
@@ -309,7 +307,7 @@
             filetitle)))
 (setq org-publish-project-alist
       '(("hw-pages"
-         :base-directory "~/freizl/my-notes/src/30-blogs/"
+         :base-directory "~/freizl/my-notes/30-blogs/"
          :base-extension "org"
          :publishing-function org-html-publish-to-html
          :publishing-directory "~/freizl/freizl.github.com/"
@@ -332,7 +330,7 @@
          :html-link-up "/"
          :html-validation-link t)
         ("hw-posts"
-         :base-directory "~/freizl/my-notes/src/30-blogs/posts"
+         :base-directory "~/freizl/my-notes/30-blogs/posts"
          :base-extension "org"
          :publishing-function org-html-publish-to-html
          :publishing-directory "~/freizl/freizl.github.com/posts"
@@ -364,7 +362,7 @@
          :html-link-up "/"
          :html-validation-link t)
         ("hw-info"
-         :base-directory "~/freizl/my-notes/src/30-blogs/info"
+         :base-directory "~/freizl/my-notes/30-blogs/info"
          :base-extension "org"
          :publishing-function org-html-publish-to-html
          :publishing-directory "~/freizl/freizl.github.com/info"
@@ -396,7 +394,7 @@
          :html-link-up "/"
          :html-validation-link t)
         ("hw-static"
-         :base-directory "~/freizl/my-notes/src/30-blogs/imgs"
+         :base-directory "~/freizl/my-notes/30-blogs/imgs"
          :base-extension "svg\\|png\\|jpeg"
          :publishing-directory "~/freizl/freizl.github.com/imgs"
          :publishing-function org-publish-attachment

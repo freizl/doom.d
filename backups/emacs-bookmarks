@@ -2,3 +2,16 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Documents"
+ (filename . "~/Documents/")
+ (front-context-string . "di-zi\n  -rw-r--r")
+ (rear-context-string . "92 Aug 18 20:48 ")
+ (position . 393)
+ (last-modified 26306 50130 847170 0))
+("Downloads"
+ (filename . "~/Downloads/")
+ (front-context-string)
+ (rear-context-string . "2M Aug 16 21:12 ")
+ (position . 287)
+ (last-modified 26306 49950 936136 0))
+)
