@@ -1,13 +1,2 @@
 ;; Auto-generated file; don't edit -*- mode: lisp-data -*-
-((:url "https://zh.m.wikipedia.org/zh-hans/%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F" :title "注音符号 - 维基百科，自由的百科全书" :time "Wed Oct 18 19:34:46 2023")
- (:url "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm" :title "LIFE 101 TABLE OF CONTENTS" :time "Fri May 19 12:45:10 2023")
- (:url "https://www.parsonsmatt.org/2023/05/11/working_with_haskell_callstack.html" :title "Working with Haskell CallStack" :time "Thu May 11 09:05:23 2023")
- (:url "https://cabal.readthedocs.io/en/3.8/" :title "Cabal 3.8.1.0 User's Guide" :time "Thu Apr 27 09:03:00 2023")
- (:url "https://freizl.github.io/" :title "Corner case" :time "Wed Apr 26 10:11:07 2023")
- (:url "https://www.haskell.org/onlinereport/haskell2010/" :title "Haskell2010 Language Report" :time "Fri Apr 21 22:06:10 2023")
- (:url "https://haskell-haddock.readthedocs.io/en/latest/" :title "Haddock 1.0 documentation" :time "Fri Apr 21 22:04:38 2023")
- (:url "https://wiki.haskell.org/Typeclassopedia" :title "Typeclassopedia" :time "Fri Apr 21 22:04:26 2023")
- (:url "https://www.haskellforall.com/2022/12/nixpkgs-support-for-incremental-haskell.html" :title "nixpkgs support incremental haskell" :time "Fri Apr 21 21:34:14 2023")
- (:url "https://aosabook.org/en/v2/ghc.html" :title "The Architecture of Open Source Applications: GHC" :time "Fri Apr 21 21:31:06 2023")
- (:url "https://elpa.nongnu.org/nongnu-devel/doc/eat.html" :title "Eat User Manual, version 0.8" :time "Fri Apr 21 15:33:50 2023")
- (:url "https://downloads.haskell.org/ghc/latest/docs/users_guide/" :title "GHC 9.4.1 User's Guide" :time "Thu Oct 13 21:21:42 2022"))
+nil

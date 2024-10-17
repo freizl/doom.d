@@ -135,6 +135,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (require 'org-web-tools)
 (setq org-directory "~/freizl/my-notes/"
+      org-attach-directory (concat org-directory ".attach")
       org-notes-directory (concat org-directory "00-orgs/")
       org-roam-directory (concat org-directory "20-roam-notes/")
       org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/"
@@ -165,8 +166,8 @@
         ;; https://orgmode.org/manual/Template-elements.html
         org-capture-templates
         '(("p" "Personal TODO" entry
-           (file+headline +org-capture-personal-file "Inbox")
-           "* TODO %?\n%i" :prepend t)
+           (file +org-capture-personal-file)
+           "* TODO %?\n%i" :append t)
 
           ("j" "Journal" item
            (file+olp+datetree +org-capture-journal-file)
@@ -287,6 +288,8 @@
     (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-posts.cache")
     (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-pages.cache")
     (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-info.cache")
+    (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-static.cache")
+    (delete-file "~/.emacs.d/.local/cache/org/timestamps/plantuml-examples.cache")
     ))
 
 (defun hw/org-sitemap-date-entry-format (entry style project)
@@ -399,6 +402,27 @@
          :publishing-directory "~/freizl/freizl.github.com/imgs"
          :publishing-function org-publish-attachment
          )
+        ("plantuml-examples"
+         :base-directory "~/freizl/plantuml-examples"
+         :base-extension "org"
+         :publishing-function org-html-publish-to-html
+         :publishing-directory "~/freizl/plantuml-examples"
+         :recursive t
+         :headline-levels 3
+         :with-toc 3
+         :time-stamp-file nil
+         :auto-sitemap t
+         :sitemap-title "Plantuml Examples"
+         :sitemap-filename "index.org"
+         :sitemap-sort-files alphabetically
+         :sitemap-ignore-case t
+         :html-postamble ""
+         :makeindex nil
+         :html-html5-fancy t
+         :html-doctype "html5"
+         :html-link-home "/"
+         :html-link-up "/"
+         :html-validation-link t)
         ("hw-site" :components ("hw-pages" "hw-posts" "hw-static"))
         ))
 
@@ -547,6 +571,15 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((typescript . t)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                        ;               PlantUML              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'ob-plantuml)
+(after! ob-plantuml
+  (add-to-list 'org-babel-default-header-args:plantuml
+               '(:java . "-Djava.awt.headless=true")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                Email                ;

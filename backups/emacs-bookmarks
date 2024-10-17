@@ -2,7 +2,61 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Documents"
+(("org-refile-last-stored"
+ (filename . "~/freizl/my-notes/00-orgs/inbox.org")
+ (front-context-string . "** TODO Register")
+ (rear-context-string . ".com/sharkdp/fd\n")
+ (position . 29333)
+ (last-modified 26381 63836 805015 0))
+("Architecture of Open Source App - GHC"
+ (front-context-string . "The Architecture")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63257 497848 0)
+ (location . "https://aosabook.org/en/v2/ghc.html")
+ (handler . eww-bookmark-jump))
+("GHC User Guide - Lastest"
+ (front-context-string . "Glasgow Haskell ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63220 841670 0)
+ (location . "https://downloads.haskell.org/ghc/latest/docs/users_guide/")
+ (handler . eww-bookmark-jump))
+("Typeclassopedia"
+ (front-context-string . "Typeclassopedia\n")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63203 434578 0)
+ (location . "https://wiki.haskell.org/Typeclassopedia")
+ (handler . eww-bookmark-jump))
+("Haskell Report 2010"
+ (front-context-string . "Haskell 2010\n\nLa")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63186 156451 0)
+ (location . "https://www.haskell.org/onlinereport/haskell2010/")
+ (handler . eww-bookmark-jump))
+("All Information Corner"
+ (front-context-string . "UP | HOME \n\nAll ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63154 28569 0)
+ (location . "https://freizl.github.io/info/")
+ (handler . eww-bookmark-jump))
+("LIFE 101 TABLE OF CONTENTS"
+ (front-context-string . " Life101  LIFE 1")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26371 63091 360069 0)
+ (location . "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm")
+ (handler . eww-bookmark-jump))
+("org-capture-last-stored"
+ (filename . "~/freizl/my-notes/20-roam-notes/20241014215907-my_hongkong_business.org")
+ (front-context-string . "\n* Transfer 50K ")
+ (rear-context-string . "ngKong Business\n")
+ (position . 98)
+ (last-modified 26381 63174 128384 0))
+("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")
  (rear-context-string . "92 Aug 18 20:48 ")

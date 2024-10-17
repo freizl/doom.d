@@ -10,9 +10,12 @@ export DOOMDIR=$HOME/freizl/doom.d && emacs
 * Fixes the [[https://github.com/doomemacs/doomemacs/issues/8003][remote repo download issue]]
 
 #+begin_src sh :tangle /tmp/fix-emacs.sh
+export EMACSDIR=~/.emacs.d
 rm -rf $EMACSDIR/.local/straight/repos/melpa/;
 rm -rf $EMACSDIR/.local/straight/repos/with-editor/;
 rm -rf $EMACSDIR/.local/straight/repos/transient;
-rm $EMACSDIR/.local/straight/build-*-cache.el;
+rm -f $EMACSDIR/.local/straight/build-*-cache.el;
 doom sync -u;
 #+end_src
+
+#+RESULTS:
