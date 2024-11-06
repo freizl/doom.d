@@ -51,11 +51,11 @@
  (location . "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm")
  (handler . eww-bookmark-jump))
 ("org-capture-last-stored"
- (filename . "~/freizl/my-notes/20-roam-notes/20241014215907-my_hongkong_business.org")
- (front-context-string . "\n* Transfer 50K ")
- (rear-context-string . "ngKong Business\n")
- (position . 98)
- (last-modified 26381 63174 128384 0))
+ (filename . "~/freizl/my-notes/00-orgs/inbox.org")
+ (front-context-string . "* TODO 觀看倪海厦的一些視")
+ (rear-context-string . "* 1.0925; %0.2f\n")
+ (position . 31082)
+ (last-modified 26395 7527 428508 0))
 ("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")

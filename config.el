@@ -135,7 +135,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (require 'org-web-tools)
 (setq org-directory "~/freizl/my-notes/"
-      org-attach-directory (concat org-directory ".attach")
+      org-attach-id-dir (concat org-directory ".attach")
       org-notes-directory (concat org-directory "00-orgs/")
       org-roam-directory (concat org-directory "20-roam-notes/")
       org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/"
@@ -638,13 +638,14 @@
 ;;
 ;; (setq doom-font (font-spec :family "Input Mono" :size 12 :weight 'medium)
 ;;       doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 12 :weight 'regular))
+;;
 ;; Alternatives
-;; https://dtinth.github.io/comic-mono-font/
 ;; https://typeof.net/Iosevka/
 ;; https://fonts.google.com/specimen/Roboto+Mono
 ;; https://fonts.google.com/specimen/Fira+Code
 ;; Linux Libertine: http://libertine-fonts.org/
 ;; ETBembo: https://github.com/edwardtufte/et-book
+;; https://github.com/microsoft/cascadia-code
 ;; Deja Vu Sans Serif
 ;; Source Sans Pro
 ;;
@@ -653,21 +654,25 @@
 ;; (setq doom-font (font-spec :family "Cascadia code" :size 15 :weight 'regular))
 ;; (setq doom-font (font-spec :family "Roboto Mono" :size 15 :weight 'regular))
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'light))
-;; (setq doom-font (font-spec :family "Comic Mono" :size 15 :weight 'light))
 ;; (setq doom-variable-pitch-font (font-spec :family "Deja Vu Sans" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "Linux Libertine O" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "ETBembo" :size 17))
-(setq doom-font (font-spec :family "Iosevka Term SS08" :size 16 :weight 'regular))
-(setq doom-variable-pitch-font (font-spec :family "Iosevka Etoile" :size 16 :weight 'regular))
-(setq doom-serif-font (font-spec :family "Iosevka Aile" :size 16 :weight 'regular))
+;;
+;; (setq doom-font (font-spec :family "Iosevka Term SS08" :size 16 :weight 'regular)
+;;       doom-serif-font (font-spec :family "Iosevka Aile" :size 16 :weight 'regular)
+;;       doom-variable-pitch-font (font-spec :family "Comic Sans MS" :size 16 :weight 'regular))
+;; (setq doom-variable-pitch-font (font-spec :family "Iosevka Etoile" :size 16 :weight 'regular))
+(setq doom-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
+      doom-serif-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-dark-high-contrast)
+;; (setq doom-theme 'doom-solarized-dark-high-contrast)
 ;; (setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-solarized-light)
-;; (setq doom-theme 'doom-zenburn)
+(setq doom-theme 'doom-zenburn)
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-palenight)
 ;; (setq doom-theme 'modus-vivendi)
