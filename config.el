@@ -74,7 +74,8 @@
           '("Haskell Errors" "https://errors.haskell.org/messages/%s")
           )
 
-(setq Info-additional-directory-list '("~/freizl/doom.d/info"))
+(setq Info-directory-list
+      (append '("~/freizl/doom.d/info") Info-directory-list))
 
 (setq restclient-log-request nil)
 
@@ -165,7 +166,7 @@
         +org-capture-note-file (concat org-notes-directory "note.org")
         ;; https://orgmode.org/manual/Template-elements.html
         org-capture-templates
-        '(("p" "Personal TODO" entry
+        '(("p" "Task" entry
            (file +org-capture-personal-file)
            "* TODO %?\n%i" :append t)
 

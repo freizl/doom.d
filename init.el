@@ -37,7 +37,7 @@
        ;;(emoji +unicode +ascii)
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
-       ;; indent-guides     ; highlighted indent columns
+       indent-guides     ; highlighted indent columns
        (ligatures +extra +iosevka) ; ligatures and symbols to make your code pretty again
        ;;minimap         ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -118,7 +118,7 @@
        ;;(cc +lsp)         ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
-       ;;coq               ; proofs-as-programs
+       coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
        data                ; config/data formats
@@ -151,7 +151,7 @@
        ;;(lua +lsp +tree-sitter)               ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       ;; nix                 ; I hereby declare "nix geht mehr!"
+       ;;nix                 ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +roam2 +present +pandoc +gnuplot +noter)         ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother

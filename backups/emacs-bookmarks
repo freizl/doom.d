@@ -52,10 +52,10 @@
  (handler . eww-bookmark-jump))
 ("org-capture-last-stored"
  (filename . "~/freizl/my-notes/00-orgs/inbox.org")
- (front-context-string . "* TODO 觀看倪海厦的一些視")
- (rear-context-string . "* 1.0925; %0.2f\n")
- (position . 31082)
- (last-modified 26395 7527 428508 0))
+ (front-context-string . "* TODO Buy or re")
+ (rear-context-string . "- 金匱要略\n  - 针灸大成\n")
+ (position . 31692)
+ (last-modified 26415 50960 80431 0))
 ("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")
