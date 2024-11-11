@@ -166,7 +166,7 @@
         +org-capture-note-file (concat org-notes-directory "note.org")
         ;; https://orgmode.org/manual/Template-elements.html
         org-capture-templates
-        '(("p" "Task" entry
+        '(("t" "Task" entry
            (file +org-capture-personal-file)
            "* TODO %?\n%i" :append t)
 
