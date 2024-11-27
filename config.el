@@ -14,7 +14,6 @@
       typescript-indent-level 2
       global-undo-tree-mode t
       ;; plantuml-default-exec-mode "jar"
-      line-spacing 3
       ;; magit
       magit-inhibit-save-previous-winconf t
       magit-todos-exclude-globs '(".git/" ".node_modules/" "dist/" "target/" "*.map" "*.json")
@@ -51,6 +50,8 @@
       ;;
       fill-column 100
       )
+
+(setq-default line-spacing 2)
 
 ;; display-line-numbers-type nil
 ;; ranger-excluded-extensions '("mkv" "iso" "mp4", "mov")
@@ -461,6 +462,7 @@
 
 (after! haskell-mode
   (setq haskell-process-type 'cabal-repl
+        lsp-haskell-server-path "~/.ghcup/bin/haskell-language-server-9.8.2~2.9.0.0"
         lsp-haskell-formatting-provider "fourmolu"
         lsp-haskell-plugin-splice-global-on nil
         lsp-haskell-plugin-haddock-comments-global-on nil
@@ -659,10 +661,10 @@
 ;; (setq doom-variable-pitch-font (font-spec :family "Linux Libertine O" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "ETBembo" :size 17))
 ;;
-;; (setq doom-font (font-spec :family "Iosevka Term SS08" :size 16 :weight 'regular)
-;;       doom-serif-font (font-spec :family "Iosevka Aile" :size 16 :weight 'regular)
+;; (setq doom-font (font-spec :family "Iosevka SS08" :size 16 :weight 'regular)
+;;       doom-serif-font (font-spec :family "Iosevka Etoile" :size 16 :weight 'regular)
 ;;       doom-variable-pitch-font (font-spec :family "Comic Sans MS" :size 16 :weight 'regular))
-;; (setq doom-variable-pitch-font (font-spec :family "Iosevka Etoile" :size 16 :weight 'regular))
+;;
 (setq doom-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
       doom-serif-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular))
@@ -670,10 +672,10 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-solarized-dark-high-contrast)
+(setq doom-theme 'doom-solarized-dark-high-contrast)
 ;; (setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-solarized-light)
-(setq doom-theme 'doom-zenburn)
+;; (setq doom-theme 'doom-zenburn)
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-palenight)
 ;; (setq doom-theme 'modus-vivendi)
