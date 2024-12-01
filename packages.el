@@ -49,21 +49,26 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
 
-;; (package! origami)
 ;; (package! sql-indent)
 ;; (package! ascii-art-to-unicode)
-
 ;; (package! org-modern)
-(package! wakatime-mode)
-(package! keyfreq)
 ;; (package! sqlformat)
 ;; (package! yesod-mode
 ;;   :recipe (:host github :repo "lfborjas/yesod-mode"))
 ;; :files ("yesod-mode.el")))
-
 ;; (package! hiedb-mode
 ;;   :recipe (:host github :repo "agentultra/hiedb-mode"))
+;; (package! haskell-ghcid-mode :recipe
+;;    (:host github
+;;     :repo "ttuegel/haskell-ghcid-mode"
+;;    :files ("*.el")))
+;; (package! impostman)
+;; (package! mermaid-mode)
+;; (package! chatgpt-shell)
+;; (package! ob-chatgpt-shell)
 
+(package! wakatime-mode)
+(package! keyfreq)
 (package! emacs-eat
   :recipe (:host codeberg
            :repo "akib/emacs-eat"
@@ -76,33 +81,14 @@
                    ("integration" "integration/*")
                    (:exclude ".dir-locals.el" "*-tests.el")
                    )))
-
-;; (package! impostman)
 (package! org-web-tools)
 (package! ascii-table)
-;; (package! mermaid-mode)
-(package! chatgpt-shell
-  :recipe (:files ("chatgpt-shell.el"
-                   "ob-chatgpt-shell.el"
-                   "dall-e-shell.el"
-                   "ob-dall-e-shell.el"
-                   )))
 (package! lean4-mode :recipe
   (:host github
    :repo "leanprover/lean4-mode"
    :files ("*.el" "data")))
-
 (package! ob-typescript :recipe
   (:host github
    :repo "lurdan/ob-typescript"
    :files ("*.el")))
 
-;; (package! ob-napkin :recipe
-;;   (:host github
-;;    :repo "pinetr2e/ob-napkin"
-;;    :files ("*.el")))
-
-;; (package! haskell-ghcid-mode :recipe
-;;    (:host github
-;;     :repo "ttuegel/haskell-ghcid-mode"
-;;    :files ("*.el")))

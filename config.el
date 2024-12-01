@@ -109,15 +109,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;            ChatGPT-shell            ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; (require 'auth-source)
-;; (use-package! chatgpt-shell
-;;   :config
-;;   (require 'chatgpt-shell)
-;;   (setq chatgpt-shell-openai-key
-;;         (auth-source-pick-first-password :host "api.openai.com" :user "haisheng@example.com"))
-;;   (require 'ob-chatgpt-shell)
-;;   (ob-chatgpt-shell-setup))
+;; (require 'chatgpt-shell)
+;; (require 'ob-chatgpt-shell)
+;; (setq chatgpt-shell-openai-key
+;;       (auth-source-pick-first-password
+;;        :host "api.openai.com"
+;;        :user "hw214@pm.me"))
+;; (ob-chatgpt-shell-setup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                Dired                ;
@@ -165,6 +164,7 @@
   (setq +org-capture-journal-file (concat org-notes-directory "journal.org")
         +org-capture-personal-file (concat org-notes-directory "inbox.org")
         +org-capture-note-file (concat org-notes-directory "note.org")
+        +org-capture-purchase-file (concat org-notes-directory "purchase.org")
         ;; https://orgmode.org/manual/Template-elements.html
         org-capture-templates
         '(("t" "Task" entry
@@ -177,7 +177,11 @@
 
           ("n" "Notes" entry
            (file +org-capture-note-file)
-           "* %U %?\n%i" :prepend t :empty-lines-before 1)
+           "* %U %?\n%i" :append t)
+
+          ("p" "Purchase" entry
+           (file +org-capture-purchase-file)
+           "* %U %?\n%i" :append t)
           )
         org-archive-location (concat org-directory "99-archive/%s::")
         org-agenda-files (list org-notes-directory
@@ -554,9 +558,9 @@
 
 (after! circe
   (set-irc-server! "irc.libera.chat"
-    `(:tls t
-      :nick "freizl"
-      :channels ("#emacs"))))
+                   `(:tls t
+                     :nick "freizl"
+                     :channels ("#emacs"))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -661,13 +665,13 @@
 ;; (setq doom-variable-pitch-font (font-spec :family "Linux Libertine O" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "ETBembo" :size 17))
 ;;
-;; (setq doom-font (font-spec :family "Iosevka SS08" :size 16 :weight 'regular)
-;;       doom-serif-font (font-spec :family "Iosevka Etoile" :size 16 :weight 'regular)
-;;       doom-variable-pitch-font (font-spec :family "Comic Sans MS" :size 16 :weight 'regular))
+;; (setq doom-font (font-spec :family "Iosevka SS08" :size 15 :weight 'regular)
+;;       doom-serif-font (font-spec :family "Iosevka Etoile" :size 15 :weight 'regular)
+;;       doom-variable-pitch-font (font-spec :family "Comic Sans MS" :size 15 :weight 'regular))
 ;;
-(setq doom-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
-      doom-serif-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 16 :weight 'regular))
+(setq doom-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular)
+      doom-serif-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the

@@ -51,11 +51,11 @@
  (location . "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm")
  (handler . eww-bookmark-jump))
 ("org-capture-last-stored"
- (filename . "~/freizl/my-notes/20-roam-notes/20241124223110-中医诊所.org")
- (front-context-string)
- (rear-context-string . ": #+title: 中医诊所\n")
- (position . 91)
- (last-modified 26436 6578 377229 0))
+ (filename . "~/freizl/my-notes/00-orgs/purchase.org")
+ (front-context-string . "* [2024-11-28 Th")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26440 50106 757860 0))
 ("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")
