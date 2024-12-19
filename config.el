@@ -694,6 +694,20 @@
 
 (add-hook 'ns-system-appearance-change-functions #'hw/apply-theme)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                        ;                Dired                ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(after! dirvish
+  (setq! dirvish-quick-access-entries
+         `(("h" "~/"                "Home")
+           ("e" ,doom-user-dir      "Emacs")
+           ("e" ,doom-emacs-dir     "DoomEmacs")
+           ("do" "~/Downloads/"     "Downloads")
+           ("dc" "~/Documents/"     "Documents")
+           ("ds" "~/Desktop/"       "Desktop")
+           ("f" "~/freizl/"         "freizl")
+           )))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other tips
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
