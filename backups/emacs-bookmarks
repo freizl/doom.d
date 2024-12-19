@@ -2,7 +2,14 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-refile-last-stored"
+(("Parser Combinators in Haskell"
+ (front-context-string . "Welcome! If you ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26450 42708 201637 0)
+ (location . "https://serokell.io/blog/parser-combinators-in-haskell")
+ (handler . eww-bookmark-jump))
+("org-refile-last-stored"
  (filename . "~/freizl/my-notes/00-orgs/inbox.org")
  (front-context-string . "** TODO Register")
  (rear-context-string . ".com/sharkdp/fd\n")
@@ -51,11 +58,11 @@
  (location . "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm")
  (handler . eww-bookmark-jump))
 ("org-capture-last-stored"
- (filename . "~/freizl/my-notes/00-orgs/purchase.org")
- (front-context-string . "* [2024-11-28 Th")
- (rear-context-string)
- (position . 1)
- (last-modified 26440 50106 757860 0))
+ (filename . "~/freizl/my-notes/20-roam-notes/20241207120750-holiday_sings_2024.org")
+ (front-context-string . "\n* Santa Claus c")
+ (rear-context-string . "iday Sings 2024\n")
+ (position . 96)
+ (last-modified 26452 43812 611880 0))
 ("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")
