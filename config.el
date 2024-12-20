@@ -700,8 +700,8 @@
 (after! dirvish
   (setq! dirvish-quick-access-entries
          `(("h" "~/"                "Home")
-           ("e" ,doom-user-dir      "Emacs")
-           ("e" ,doom-emacs-dir     "DoomEmacs")
+           ("E" ,doom-user-dir      "Emacs")
+           ("D" ,doom-emacs-dir     "DoomEmacs")
            ("do" "~/Downloads/"     "Downloads")
            ("dc" "~/Documents/"     "Documents")
            ("ds" "~/Desktop/"       "Desktop")
