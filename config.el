@@ -49,6 +49,8 @@
       deft-use-filename-as-title t
       ;;
       fill-column 100
+      ;;
+      debug-on-error t
       )
 
 (setq-default line-spacing 2)
@@ -290,13 +292,25 @@
   "Clean up org-publish cache and cache files"
   (interactive)
   (progn
-    (org-publish-reset-cache)
-    (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-posts.cache")
-    (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-pages.cache")
-    (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-info.cache")
-    (delete-file "~/.emacs.d/.local/cache/org/timestamps/hw-static.cache")
-    (delete-file "~/.emacs.d/.local/cache/org/timestamps/plantuml-examples.cache")
+    (org-publish-remove-all-timestamps)
     ))
+
+(defun sort-org-entries-by-date (entries)
+  "Sort a list of org entries by date in ascending order.
+Each entry is in the form: ((YYYY-MM-DD) [filename description])."
+  (let ((copy (cl-copy-list entries))) ;; Make a copy to preserve the original
+    (sort copy (lambda (a b)
+                 (string< (car a) (car b)))))) 
+
+
+(defun hw/org-publish-sitemap (title list)
+  "Sort the LIST of files and then generate the sitemap."
+  (let ((sorted-list (sort (copy-sequence list)
+                           (lambda (a b)
+                             (let* ((str-a (format "%s" (if (consp a) (car a) a)))
+                                    (str-b (format "%s" (if (consp b) (car b) b))))
+                               (string> str-a str-b))))))
+    (org-publish-sitemap-default title sorted-list)))
 
 (defun hw/org-sitemap-date-entry-format (entry style project)
   "Format ENTRY in org-publish PROJECT Sitemap format ENTRY ENTRY STYLE format that includes date."
@@ -304,12 +318,6 @@
         (file-prop-date (org-publish-find-property entry :date project))
         (filedate (org-publish-find-date entry project))
         )
-    ;; debug
-    ;; (message (format "%s - %s" entry filetitle))
-    ;; (message (format "%s [[file:%s][%s]]"
-    ;;         (if file-prop-date file-prop-date (format-time-string "%Y-%m-%d" filedate))
-    ;;         entry
-    ;;         filetitle))
     (format "%s [[file:%s][%s]]"
             (if file-prop-date file-prop-date (format-time-string "%Y-%m-%d" filedate))
             entry
@@ -324,7 +332,7 @@
          :headline-levels 3
          :with-toc nil
          :section-numbers nil
-         :auto-sitemap nil
+         :auto-sitemap t
          :makeindex nil
          :html-postamble nil
          :html-head-include-scripts nil
@@ -353,6 +361,8 @@
          ;; :sitemap-sort-files alphabetically
          :sitemap-ignore-case t
          :sitemap-format-entry hw/org-sitemap-date-entry-format
+         :sitemap-function hw/org-publish-sitemap
+         :with-broken-links t
          :makeindex nil
          :html-postamble "<hr/>
 <footer>
@@ -379,10 +389,11 @@
          :headline-levels 3
          :with-toc 3
          :time-stamp-file nil
-         :auto-sitemap t
+         :auto-sitemap nil
          :sitemap-title "All Information Corner"
          :sitemap-filename "index.org"
          ;; :sitemap-sort-files alphabetically
+         :with-broken-links t
          :sitemap-ignore-case t
          :sitemap-format-entry hw/org-sitemap-date-entry-format
          :makeindex nil
@@ -429,7 +440,7 @@
          :html-link-home "/"
          :html-link-up "/"
          :html-validation-link t)
-        ("hw-site" :components ("hw-pages" "hw-posts" "hw-static"))
+        ("hw-site" :components ("hw-pages" "hw-posts" "hw-static" "hw-info"))
         ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -659,19 +670,17 @@
 ;; (setq doom-font (font-spec :family "SF Mono" :size 15 :weight 'regular))
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light))
 ;; (setq doom-font (font-spec :family "Cascadia code" :size 15 :weight 'regular))
-;; (setq doom-font (font-spec :family "Roboto Mono" :size 15 :weight 'regular))
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'light))
-;; (setq doom-variable-pitch-font (font-spec :family "Deja Vu Sans" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "Linux Libertine O" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "ETBembo" :size 17))
-;;
-(setq doom-font (font-spec :family "Iosevka SS08" :size 15 :weight 'regular)
-      doom-serif-font (font-spec :family "Iosevka Etoile" :size 15 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Iosevka SS08" :size 15 :weight 'regular))
 ;;
 ;; (setq doom-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular)
 ;;       doom-serif-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular)
 ;;       doom-variable-pitch-font (font-spec :family "Berkeley Mono" :size 15 :weight 'regular))
+;;
+(setq doom-font (font-spec :family "Iosevka SS08" :size 15 :weight 'regular)
+      doom-serif-font (font-spec :family "Iosevka Etoile" :size 15 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Comic Sans MS" :size 15 :weight 'regular))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -689,7 +698,7 @@
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'doom-solarized-dark-high-contrast t))
+    ('light (load-theme 'modus-operandi t))
     ('dark (load-theme 'doom-solarized-dark-high-contrast t))))
 
 (add-hook 'ns-system-appearance-change-functions #'hw/apply-theme)
@@ -707,6 +716,21 @@
            ("ds" "~/Desktop/"       "Desktop")
            ("f" "~/freizl/"         "freizl")
            )))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                        ;                  AI                 ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+(after! !copilot-chat
+  (setq copilot-chat-model "claude-3.5-sonnet"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other tips
