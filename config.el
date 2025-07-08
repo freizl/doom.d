@@ -332,7 +332,7 @@ Each entry is in the form: ((YYYY-MM-DD) [filename description])."
          :headline-levels 3
          :with-toc nil
          :section-numbers nil
-         :auto-sitemap t
+         :auto-sitemap nil
          :makeindex nil
          :html-postamble nil
          :html-head-include-scripts nil
@@ -389,7 +389,7 @@ Each entry is in the form: ((YYYY-MM-DD) [filename description])."
          :headline-levels 3
          :with-toc 3
          :time-stamp-file nil
-         :auto-sitemap nil
+         :auto-sitemap t
          :sitemap-title "All Information Corner"
          :sitemap-filename "index.org"
          ;; :sitemap-sort-files alphabetically

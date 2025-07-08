@@ -64,11 +64,11 @@
  (location . "http://www.drugsense.org/mcwilliams/www.mcwilliams.com/books/books/life1/index7.htm")
  (handler . eww-bookmark-jump))
 ("org-capture-last-stored"
- (filename . "~/freizl/my-notes/20-roam-notes/20250414082107-stanford_cs336_language_modeling_from_scratch.org")
- (front-context-string)
- (rear-context-string . "ng from Scratch\n")
- (position . 123)
- (last-modified 26621 10212 935876 0))
+ (filename . "~/freizl/my-notes/00-orgs/journal.org")
+ (front-context-string . "- [2025-05-04 Su")
+ (rear-context-string . "25-05-04 Sunday\n")
+ (position . 627)
+ (last-modified 26647 65368 575213 0))
 ("Documents"
  (filename . "~/Documents/")
  (front-context-string . "di-zi\n  -rw-r--r")
